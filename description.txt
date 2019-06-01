@@ -1,0 +1,1 @@
+This a really simple mod, that allows you to have more than 600 mana, by removing the 400 cap from statManaMax2.

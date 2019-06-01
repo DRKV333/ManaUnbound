@@ -1,0 +1,9 @@
+author = DRKV
+version = 1.0
+displayName = Mana Unbound
+includePDB = false
+dllReferences = 0Harmony
+buildIgnore = .gitignore, .gitattributes, *.csproj*, *.sln, *.targets, .git/*, .vs/*, bin/*, obj/*, *.xcf, lib/ReLogic.dll
+hideCode = false
+hideResources = false
+includeSource = true
