@@ -7,3 +7,4 @@ buildIgnore = .gitignore, .gitattributes, *.csproj*, *.sln, *.targets, .git/*, .
 hideCode = false
 hideResources = false
 includeSource = true
+homepage = https://github.com/DRKV333/ManaUnbound
