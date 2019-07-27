@@ -1,5 +1,5 @@
 author = DRKV
-version = 1.0
+version = 1.1
 displayName = Mana Unbound
 includePDB = false
 buildIgnore = .gitignore, .gitattributes, *.csproj*, *.sln, *.targets, .git/*, .vs/*, bin/*, obj/*, *.xcf, lib/ReLogic.dll
