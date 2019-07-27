@@ -4,7 +4,7 @@ This a really simple mod, that allows you to have more than 600 mana, by removin
 
 ## How it works
 
-All this mod does, is replace a single instruction in `Player.Update` using [Harmony](https://github.com/pardeike/Harmony).
+All this mod does, is replace a single instruction in `Player.Update` using tModLoader's built-in IL patcher.
 
 In the part that looks like this:
 

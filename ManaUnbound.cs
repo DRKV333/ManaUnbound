@@ -1,12 +1,10 @@
-﻿using Harmony;
+﻿using MonoMod.Cil;
 using Terraria.ModLoader;
 
 namespace ManaUnbound
 {
     public class ManaUnbound : Mod
     {
-        private HarmonyInstance harmonyInstance;
-
         public ManaUnbound()
         {
             Properties = new ModProperties() { Autoload = false, AutoloadBackgrounds = false, AutoloadGores = false, AutoloadSounds = false };
@@ -14,15 +12,22 @@ namespace ManaUnbound
 
         public override void Load()
         {
-            if (harmonyInstance == null)
-                harmonyInstance = HarmonyInstance.Create(Name);
-
-            harmonyInstance.PatchAll();
+            IL.Terraria.Player.Update += Player_Update;
         }
 
-        public override void Unload()
+        private void Player_Update(ILContext il)
         {
-            harmonyInstance.UnpatchAll();
+            ILCursor cursor = new ILCursor(il);
+
+            if (!cursor.TryGotoNext(MoveType.Before,
+                                    i => i.MatchLdfld("Terraria.Player", "statManaMax2"),
+                                    i => i.MatchLdcI4(400)))
+            {
+                Logger.Fatal("Could not find instruction to patch");
+                return;
+            }
+
+            cursor.Next.Next.Operand = int.MaxValue;
         }
     }
 }
